@@ -1,8 +1,11 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 import PackageDescription
 
 let package = Package(
     name: "CountryPickerView",
+    platforms: [
+        .iOS(.v11)
+    ],
     products: [
         .library(name: "CountryPickerView", targets: ["CountryPickerView"])
     ],
@@ -11,7 +14,8 @@ let package = Package(
             name: "CountryPickerView",
             path: "CountryPickerView",
             resources: [
-            .process("Resources")]
+                .process("Resources")
+            ]
         )
     ]
 )
