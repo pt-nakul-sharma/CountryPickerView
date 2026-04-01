@@ -18,6 +18,9 @@ public struct Country: Equatable {
     public let name: String
     public let code: String
     public let phoneCode: String
+    public let phoneNumberMinLength: Int
+    public let phoneNumberMaxLength: Int
+
     public func localizedName(_ locale: Locale = Locale.current) -> String? {
         return locale.localizedString(forRegionCode: code)
     }
@@ -188,7 +191,15 @@ public class CountryPickerView: NibView {
                       let phoneCode = countryObj["dial_code"] as? String else {
                     continue
                 }
-                let country = Country(name: name, code: code, phoneCode: phoneCode)
+                let minLength = countryObj["min"] as? Int ?? 7
+                let maxLength = countryObj["max"] as? Int ?? 12
+                
+                let country = Country(name: name, 
+                                      code: code, 
+                                      phoneCode: phoneCode, 
+                                      phoneNumberMinLength: minLength, 
+                                      phoneNumberMaxLength: maxLength
+                                     )
                 countries.append(country)
             }
         }
