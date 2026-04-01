@@ -191,8 +191,8 @@ public class CountryPickerView: NibView {
                       let phoneCode = countryObj["dial_code"] as? String else {
                     continue
                 }
-                let minLength = countryObj["min"] as? Int ?? 7
-                let maxLength = countryObj["max"] as? Int ?? 12
+                let minLength = countryObj["min"] as? Int ?? 6
+                let maxLength = countryObj["max"] as? Int ?? 13
                 
                 let country = Country(name: name, 
                                       code: code, 
